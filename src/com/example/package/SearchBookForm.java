@@ -1,15 +1,33 @@
-package com.example.package;
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-import javax.swing.*; // Importation nécessaire pour les composants Swing
+public class SearchBookForm extends JFrame {
+    private JTextField searchField;
+    private JButton searchButton;
 
-public class SearchBookForm {
-    // Code pour gérer le formulaire de recherche de livre
     public SearchBookForm() {
-        // Implémentez ici le constructeur et l'interface utilisateur
-        JFrame frame = new JFrame("Search Book");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(300, 200);
-        // Ajoutez d'autres composants comme des boutons, des champs de texte, etc.
-        frame.setVisible(true);
+        setTitle("Rechercher un Livre");
+        setSize(300, 150);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
+        JPanel panel = new JPanel();
+        searchField = new JTextField(20);
+        searchButton = new JButton("Rechercher");
+
+        panel.add(new JLabel("Titre ou Auteur:"));
+        panel.add(searchField);
+        panel.add(searchButton);
+        add(panel);
+
+        searchButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String query = searchField.getText();
+                // Logique pour rechercher un livre
+                System.out.println("Recherche pour : " + query);
+                dispose();
+            }
+        });
     }
 }
