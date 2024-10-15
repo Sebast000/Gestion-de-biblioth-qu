@@ -5,19 +5,22 @@ public class Bibliotheque {
     private List<Livre> livres;
 
     public Bibliotheque() {
-        this.livres = new ArrayList<>();
+        livres = new ArrayList<>();
     }
 
-    public void ajouterLivre(Livre livre) {
+    public void addLivre(Livre livre) {
         livres.add(livre);
+    }
+
+    public void removeLivre(String titre) {
+        livres.removeIf(livre -> livre.getTitre().equals(titre));
     }
 
     public List<Livre> getLivres() {
         return livres;
     }
 
-    // Recherche de livre par titre
-    public Livre rechercherParTitre(String titre) {
+    public Livre searchLivre(String titre) {
         for (Livre livre : livres) {
             if (livre.getTitre().equalsIgnoreCase(titre)) {
                 return livre;
