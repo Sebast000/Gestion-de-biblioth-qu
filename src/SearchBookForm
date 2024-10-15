@@ -1,0 +1,44 @@
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class SearchBookForm extends JFrame {
+    private JTextField titleField;
+    private Bibliotheque bibliotheque;
+
+    public SearchBookForm(Bibliotheque bibliotheque) {
+        this.bibliotheque = bibliotheque;
+        setTitle("Rechercher un livre");
+        setSize(300, 150);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
+        JPanel panel = new JPanel();
+        add(panel);
+        panel.setLayout(null);
+
+        JLabel titleLabel = new JLabel("Titre:");
+        titleLabel.setBounds(10, 20, 80, 25);
+        panel.add(titleLabel);
+
+        titleField = new JTextField(20);
+        titleField.setBounds(100, 20, 165, 25);
+        panel.add(titleField);
+
+        JButton searchButton = new JButton("Rechercher");
+        searchButton.setBounds(10, 60, 150, 25);
+        panel.add(searchButton);
+
+        searchButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String title = titleField.getText();
+                Livre livre = bibliotheque.searchLivre(title);
+                if (livre != null) {
+                    JOptionPane.showMessageDialog(null, "Livre trouvé: " + livre.toString());
+                } else {
+                    JOptionPane.showMessageDialog(null, "Livre non trouvé");
+                }
+            }
+        });
+    }
+}
