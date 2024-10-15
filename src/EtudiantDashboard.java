@@ -1,26 +1,26 @@
-import com.example.package.RemoveBookForm;
-import com.example.package.SearchBookForm;
-
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class EtudiantDashboard extends JFrame {
-    private Bibliotheque bibliotheque;
+    private JButton searchBookButton;
 
-    public EtudiantDashboard(Bibliotheque bibliotheque) {
-        this.bibliotheque = bibliotheque;
-        setTitle("Tableau de bord - Étudiant");
-        setSize(400, 300);
+    public EtudiantDashboard() {
+        setTitle("Tableau de Bord Étudiant");
+        setSize(300, 200);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-         searchBookButton.addActionListener(e -> {
-            SearchBookForm searchForm = new SearchBookForm();
-            searchForm.display();
-
-        JButton searchBookButton = new JButton("Rechercher un livre");
-        searchBookButton.addActionListener(e -> new SearchBookForm(bibliotheque).setVisible(true));
 
         JPanel panel = new JPanel();
-        panel.add(searchBookButton);
+        searchBookButton = new JButton("Rechercher un Livre");
 
+        panel.add(searchBookButton);
         add(panel);
+
+        searchBookButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new SearchBookForm().setVisible(true); // Assure-toi que cette classe existe
+            }
+        });
     }
 }
