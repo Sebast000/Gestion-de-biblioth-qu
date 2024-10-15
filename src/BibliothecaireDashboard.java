@@ -1,5 +1,5 @@
 import javax.swing.*;
-
+import com.example.package.RemoveBookForm;
 public class BibliothecaireDashboard extends JFrame {
     private Bibliotheque bibliotheque;
 
@@ -14,6 +14,8 @@ public class BibliothecaireDashboard extends JFrame {
 
         JButton removeBookButton = new JButton("Supprimer un livre");
         removeBookButton.addActionListener(e -> new RemoveBookForm(bibliotheque).setVisible(true));
+        RemoveBookForm form = new RemoveBookForm();
+        form.display();
 
         JPanel panel = new JPanel();
         panel.add(addBookButton);
