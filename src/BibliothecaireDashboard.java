@@ -1,5 +1,6 @@
-import javax.swing.*;
 import com.example.package.RemoveBookForm;
+import javax.swing.*;
+
 public class BibliothecaireDashboard extends JFrame {
     private Bibliotheque bibliotheque;
 
