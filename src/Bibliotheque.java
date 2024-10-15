@@ -8,8 +8,9 @@ public class Bibliotheque {
         livres = new ArrayList<>();
     }
 
-    public void addLivre(Livre livre) {
+   public void addLivre(Livre livre) {
         livres.add(livre);
+        System.out.println("Livre ajouté : " + livre.getTitle());
     }
 
     public void removeLivre(String titre) {
