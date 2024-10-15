@@ -1,5 +1,6 @@
 package com.example.package;
-
+import com.example.package.RemoveBookForm; // Les imports doivent suivre la déclaration du package
+import com.example.package.SearchBookForm;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
