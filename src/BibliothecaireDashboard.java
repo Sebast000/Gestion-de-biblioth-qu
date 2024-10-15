@@ -1,4 +1,6 @@
 import com.example.package.RemoveBookForm;
+import com.example.package.SearchBookForm;
+
 import javax.swing.*;
 
 public class BibliothecaireDashboard extends JFrame {
