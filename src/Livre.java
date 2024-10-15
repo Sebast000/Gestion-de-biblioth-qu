@@ -1,26 +1,28 @@
 public class Livre {
     private String titre;
     private String auteur;
-    private int anneePublication;
-    private boolean disponible;
+    private int annee;
 
-    public Livre(String titre, String auteur, int anneePublication) {
+    public Livre(String titre, String auteur, int annee) {
         this.titre = titre;
         this.auteur = auteur;
-        this.anneePublication = anneePublication;
-        this.disponible = true;  // Par défaut, un livre est disponible
+        this.annee = annee;
     }
 
-    // Getters et Setters
     public String getTitre() {
         return titre;
     }
 
-    public boolean isDisponible() {
-        return disponible;
+    public String getAuteur() {
+        return auteur;
     }
 
-    public void setDisponible(boolean disponible) {
-        this.disponible = disponible;
+    public int getAnnee() {
+        return annee;
+    }
+
+    @Override
+    public String toString() {
+        return titre + " - " + auteur + " (" + annee + ")";
     }
 }
