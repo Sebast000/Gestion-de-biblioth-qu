@@ -5,6 +5,9 @@ import java.awt.event.ActionListener;
 public class SearchBookForm extends JFrame {
     private JTextField titleField;
     private Bibliotheque bibliotheque;
+public void display() {
+        System.out.println("Affichage du formulaire de recherche de livre.");
+    
 
     public SearchBookForm(Bibliotheque bibliotheque) {
         this.bibliotheque = bibliotheque;
@@ -41,4 +44,5 @@ public class SearchBookForm extends JFrame {
             }
         });
     }
+}
 }
