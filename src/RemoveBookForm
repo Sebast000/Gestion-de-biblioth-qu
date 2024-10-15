@@ -1,0 +1,41 @@
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class RemoveBookForm extends JFrame {
+    private JTextField titleField;
+    private Bibliotheque bibliotheque;
+
+    public RemoveBookForm(Bibliotheque bibliotheque) {
+        this.bibliotheque = bibliotheque;
+        setTitle("Supprimer un livre");
+        setSize(300, 150);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
+        JPanel panel = new JPanel();
+        add(panel);
+        panel.setLayout(null);
+
+        JLabel titleLabel = new JLabel("Titre:");
+        titleLabel.setBounds(10, 20, 80, 25);
+        panel.add(titleLabel);
+
+        titleField = new JTextField(20);
+        titleField.setBounds(100, 20, 165, 25);
+        panel.add(titleField);
+
+        JButton removeButton = new JButton("Supprimer");
+        removeButton.setBounds(10, 60, 150, 25);
+        panel.add(removeButton);
+
+        removeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String title = titleField.getText();
+                bibliotheque.removeLivre(title);
+                JOptionPane.showMessageDialog(null, "Livre supprimé avec succès!");
+                dispose();
+            }
+        });
+    }
+}
